@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script language="JavaScript">
+    var encodedOutput = "";
+    const updateQueryEncodedDiv = (input) => {
+      encodedOutput = "hello";
+      console.log('hello');
+      getQueryEncodedDiv().innerText = 
+      getQueryValue()
+        .replaceAll(/[ ](2,)/g, '+')
+        .replaceAll(/ /g, '+');
+    };
+
+    const copyToClipboard = () => navigator.clipboard.writeText(getQueryEncodedDivText());
+    const getQueryValue = () => document.getElementById('query').value;
+    const getQueryEncodedDiv = () => document.getElementById('queryOutput');
+    const getQueryEncodedDivText = () => getQueryEncodedDiv().innerText;
+
+    </script>
+    <title>SQL Encoding Tool</title>
+  </head>
+  <body>
+    <form name="soqlForm">
+      <p>
+        <textarea onKeyUp="updateQueryEncodedDiv()" style="height: 200px; width: 100%; float: left;" id="query">SELECT * From Thing</textarea>
+      </p>
+      <p>
+        <div id="queryOutput">Hola</div>
+      </p>
+    </form>
+    <p>
+      <button onclick="copyToClipboard()">Copy text</button>
+    </p>
+  </body>
+</html>
