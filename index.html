@@ -3,14 +3,11 @@
   <head>
     <script language="JavaScript">
     var encodedOutput = "";
-    const updateQueryEncodedDiv = (input) => {
-      encodedOutput = "hello";
-      console.log('hello');
+    const updateQueryEncodedDiv = (input) =>
       getQueryEncodedDiv().innerText = 
       getQueryValue()
-        .replaceAll(/[ ](2,)/g, '+')
+        .replaceAll(/\s\s+/g, '+')
         .replaceAll(/ /g, '+');
-    };
 
     const copyToClipboard = () => navigator.clipboard.writeText(getQueryEncodedDivText());
     const getQueryValue = () => document.getElementById('query').value;
